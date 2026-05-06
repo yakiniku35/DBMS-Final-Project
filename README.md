@@ -13,3 +13,5 @@ DELETE: 刪除資源 (例如：/teams/{id} 解散隊伍)
 
 # 每次pull後
 pnpm install
+pnpm add mysql2
+
