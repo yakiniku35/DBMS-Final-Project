@@ -2,6 +2,9 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
@@ -18,7 +21,8 @@ let nextMockId = 3000;
 app.use(express.json());
 
 // 2. 設定靜態檔案路徑 (指向你存放 HTML/CSS/前端JS 的地方)
-app.use(express.static(startPageDir));
+// 假設你之後把前端檔案移到名為 public 的資料夾
+app.use(express.static(path.join(__dirname, 'views/StartPage')));
 
 // 3. 測試用 API：檢查後端有沒有跑起來
 app.get('/api/test', (req, res) => {
